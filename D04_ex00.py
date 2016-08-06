@@ -11,18 +11,38 @@
 #         - then ends the program
 ################################################################################
 # Imports
-
+import random
+from random import randint
 
 # Body
 
+def randomguess():
+    guess = ''
+    actual = random.randint(1,25)
+    countdown = 5
 
+    while countdown > 0:
+            try:
+                    guess = float(input("Guess a number: "))
+                    countdown -= 1
+                    if guess > actual and 1<=guess<=25:
+                            print("Your guess is too high")
+                    if guess > 25 or guess < 1:
+                            print("Remember that guesses must be between 1 and 25")
+                    if guess < actual and 1<=guess<=25:
+                            print("Your guess is too low")
+                    if guess == actual:
+                            print("Your guess is correct!")
+            except:
+                    print("You have not inputted a number")
+                    countdown -= 1
 
 
 ################################################################################
 def main():
 
 
-    print("Hello World!") # Remove this and replace with your function calls
+    randomguess()
     
 
 if __name__ == '__main__':

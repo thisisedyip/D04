@@ -20,14 +20,22 @@
 
 
 # Body
-
+def count():
+    word = str(input("Gimme a word: "))
+    userletter = str(input("Gimme a letter: "))
+    count = 0
+    for letter in word:
+        if letter == userletter:
+            count = count + 1
+    print("BOOM!  The number of " + str(userletter)+"'s" + " in "+ str(word) + " is " + str(count))
+    
 
 ###############################################################################
 def main():
 
     # Remove print("Hello World!") and add several functions calls to count()
     # below, passing various strings and letters
-    print("Hello World!")
+    count()
 
 
 if __name__ == '__main__':

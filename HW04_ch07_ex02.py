@@ -21,15 +21,27 @@
 
 ###############################################################################
 # Imports
-
+import math
 
 # Body
-
+def eval_loop():
+    user = ''
+    newvalue = 0
+    while True:
+        try:
+            user = str(input("Please provide an eval input: "))
+            newvalue = eval(user)
+            print(newvalue)
+        except:
+            if user != 'done':
+                print("You've provided an inappropriate eval input.")
+        if user == 'done':
+                break
+    print("You're done!  Your most recent eval was: " + str(newvalue))
 
 ###############################################################################
 def main():
-    pass  # Remove this line and uncomment below once eval_loop is defined.
-    # eval_loop()
+    eval_loop()
 
 if __name__ == '__main__':
     main()

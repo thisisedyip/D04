@@ -17,8 +17,14 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-    # +++your code here+++
-    return
+    if len(s) >= 3:
+        if s[-3:] != 'ing':
+            newword = s+'ing'
+        elif s[-3:] == 'ing':
+            newword = s+'ly'
+    elif len(s) < 3:
+        newword = s
+    return newword
 
 
 # E. not_bad
@@ -30,9 +36,20 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    # +++your code here+++
-    return
-
+    count = 0
+    for words in s.split():
+        if 'not' in words: #scan for the word 'not' first
+            newword = s.split('not')
+            count += 1           
+        if 'bad' in words and count == 1: #scan for the word 'bad' only if 'not' is found first
+            newword2 = s.split('bad') #print out anything that comes after bad, e.g. punctuation
+            count += 1           
+        if count == 2: #print newly constructed sentence if both not and bad have been found sequentially
+            final =  newword[0] + 'good' + newword2[1]
+        elif count != 2: #print out normal sentence if not and bad were not found sequentially
+            final = s
+            
+    return final
 
 # F. front_back
 # Consider dividing a string into two halves.
@@ -42,8 +59,26 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    # +++your code here+++
-    return
+    if len(a)%2 == 0: #even cases
+        a_front = a[:(len(a)//2)]
+        a_back = a[-(len(a)//2):]
+        if len(b)%2 == 0:
+            b_front = b[:(len(b))//2]
+            b_back = b[-(len(b)//2):]
+        else:
+            b_front = b[:((len(b)+1)//2)]
+            b_back = b[-((len(b)-1)//2):]
+    elif len(a)%2 != 0: #odd cases
+        a_front = a[:((len(a)+1)//2)]
+        a_back = a[-((len(a)-1)//2):]
+        if len(b)%2 == 0:
+            b_front = b[:(len(b))//2]
+            b_back = b[-(len(b)//2):]
+        else:
+            b_front = b[:((len(b)+1)//2)]
+            b_back = b[-((len(b)-1)//2):]
+    final = a_front+b_front+a_back+b_back
+    return final
 
 
 # Simple provided test() function used in main() to print

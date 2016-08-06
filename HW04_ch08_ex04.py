@@ -13,9 +13,10 @@
 # Body
 
 
+
 def any_lowercase1(s):
-    """Explain what is wrong, if anything, here.
-    """
+    """ Stops scanning after first letter in s
+    """ 
     for c in s:
         if c.islower():
             return True
@@ -24,8 +25,8 @@ def any_lowercase1(s):
 
 
 def any_lowercase2(s):
-    """Explain what is wrong, if anything, here.
-    """
+    """ Only scans character 'c' instead of the variable c in s
+    """ 
     for c in s:
         if 'c'.islower():
             return 'True'
@@ -34,7 +35,7 @@ def any_lowercase2(s):
 
 
 def any_lowercase3(s):
-    """Explain what is wrong, if anything, here.
+    """ Only returns last letter it scans for c in s
     """
     for c in s:
         flag = c.islower()
@@ -42,7 +43,7 @@ def any_lowercase3(s):
 
 
 def any_lowercase4(s):
-    """Explain what is wrong, if anything, here.
+    """ Nothing is wrong
     """
     flag = False
     for c in s:
@@ -51,13 +52,12 @@ def any_lowercase4(s):
 
 
 def any_lowercase5(s):
-    """Explain what is wrong, if anything, here.
+    """ Returns false anytime a capital letter is present even if lower cases are present 
     """
     for c in s:
         if not c.islower():
             return False
     return True
-
 
 ###############################################################################
 def main():
@@ -66,7 +66,10 @@ def main():
     # call that function with a string for which the function returns
     # incorrectly.
     # ex.: any_lowercase_("thisstringmessesupthefunction")
-    print("Hello World!")
+any_lowercase1("Anything")
+any_lowercase2("ANYTHING")
+any_lowercase3("anythinG")
+any_lowercase5("anythinG")
 
 
 if __name__ == '__main__':
